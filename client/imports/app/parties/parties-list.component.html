@@ -1,8 +1,10 @@
 <ul>
   <li *ngFor="let party of parties | async">
-<b>{{party.name}}</b>
+<a [routerLink]="['party',party._id]">{{party.name}}</a>
+
 <!--<p>{{party.description}}</p>
 <p>{{party.location}}</p>
 <button (click)="removeParty(party)" class="delete">X</button>-->
   </li>
 </ul></ul>
+<a [routerLink]="">Main party link</a>

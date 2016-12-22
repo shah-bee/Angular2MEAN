@@ -5,7 +5,7 @@ import {loadParties} from "./imports/fixtures/parties";
 
 Meteor.startup(() =>
     { 
-       // loadParties()
+        loadParties()
     }
     );
 // const mainInstance = new Main();
