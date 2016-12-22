@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let party of parties | async">
+<b>{{party.name}}</b>
+<p>{{party.description}}</p>
+<p>{{party.location}}</p>
+<button (click)="removeParty(party)" class="delete">X</button>
+  </li>
+</ul></ul>
