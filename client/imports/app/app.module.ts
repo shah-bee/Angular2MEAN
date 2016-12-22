@@ -3,8 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import {PartiesComponent} from "../app/parties/parties.component";
 import {PartiesListComponent} from "../app/parties/parties-list.component";
-
-
+import {RouterModule} from "@angular/router";
+import {routes} from "./app.route";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
@@ -26,7 +26,8 @@ import {FormsModule,ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   // Main Component
   bootstrap: [ AppComponent ]
