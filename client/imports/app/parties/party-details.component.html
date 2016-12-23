@@ -1,6 +1,20 @@
-<a [routerLink]="['/']">Main party link</a>
+<!--<a [routerLink]="['/']">Main party link</a>
 <header>
 <p>{{party.name}}</p>
 <p>{{party.description}}</p>
 <p>{{party.location}}</p>
-</header>
+</header>-->
+
+<form *ngIf="party" (submit)="saveParty()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)] ="party.name" name="name"/>
+    
+    <label>Desscription:</label>
+    <input type="text" [(ngModel)] ="party.description" name="description"/>
+    
+    <label>Location:</label>
+    <input type="text" [(ngModel)] ="party.location" name="location"/>
+
+    <button type="submit">Save!</button>
+    <input type="button" [routerLink]="['/']">Cancel</button>
+</form>

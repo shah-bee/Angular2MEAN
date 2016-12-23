@@ -20,9 +20,20 @@ export class PartyDetailsComponent implements OnInit{
                
            }
 
+           saveParty(){
+                Parties.update(this.party._id,{
+                    $set: {
+                        name : this.party.name,
+                        description: this.party.description,
+                        location:this.party.location
+                    }
+                })
+
+           }
+
            ngOnInit(){
                this.paramsSub = this.route.params
-               .map(params =>params["partyId"])
+               .map(params => params["partyId"])
                .subscribe(partyId => this.partyId = partyId)
 
                this.party = Parties.findOne(this.partyId);

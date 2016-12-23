@@ -1,23 +1,19 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "es6",
-      "dom"
-    ],
     "module": "commonjs",
+    "isolatedModules": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
     "emitDecoratorMetadata": true,
     "sourceMap": true
   },
   "exclude": [
     "node_modules"
   ],
-  "files": [
-    "typings.d.ts"
-  ],
-  "compileOnSave": false,
+    "compileOnSave": false,
   "angularCompilerOptions": {
     "genDir": "aot",
     "skipMetadataEmit": true

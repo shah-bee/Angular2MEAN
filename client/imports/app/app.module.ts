@@ -8,6 +8,7 @@ import {PartyDetailsComponent} from "../app/parties/party-details.component";
 import {RouterModule} from "@angular/router";
 import {routes} from "./app.route";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {AccountsModule} from "angular2-meteor-accounts-ui";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {FormsModule,ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AccountsModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]
