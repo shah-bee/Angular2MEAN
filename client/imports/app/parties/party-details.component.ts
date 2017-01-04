@@ -1,5 +1,5 @@
 import {Component,OnInit,OnDestroy} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute,CanActivate} from "@angular/router";
 import "rxjs/add/operator/map";
 import {Subscription} from "rxjs/Subscription";
 import template from "./party-details.component.html";
@@ -11,7 +11,7 @@ import {Party} from "../../../../both/models/party.model";
    selector:'party-details',
    template
 })
-export class PartyDetailsComponent implements OnInit{
+export class PartyDetailsComponent implements OnInit, CanActivate{
            partyId:string;
            paramsSub:Subscription;
            party:Party;
@@ -29,6 +29,16 @@ export class PartyDetailsComponent implements OnInit{
                     }
                 })
 
+           }
+
+        removeParty(party:Party):void{
+        Parties.remove(party._id);
+        }
+
+           canActivate(){
+
+               const party = Parties.findOne(this.partyId)
+               return (party && party.owner == Meteor.userId());
            }
 
            ngOnInit(){

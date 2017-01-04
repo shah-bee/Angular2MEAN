@@ -8,7 +8,12 @@
     "removeComments": false,
     "noImplicitAny": false,
     "emitDecoratorMetadata": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "outDir": "./build/",
+    "outFile": "./build/main.js",
+    "listEmittedFiles":true,
+    "mapRoot": ""
+
   },
   "exclude": [
     "node_modules"

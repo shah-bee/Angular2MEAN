@@ -1,7 +1,9 @@
 import {CollectionObject} from "../models/collection-object.model";
 
 export interface Party extends CollectionObject{
-    name:String,
-    description:String,
-    location:String
+    name:string,
+    description:string,
+    location:string,
+    owner?: string,
+    public:boolean
 }

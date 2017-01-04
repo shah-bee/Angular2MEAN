@@ -15,6 +15,7 @@
     <label>Location:</label>
     <input type="text" [(ngModel)] ="party.location" name="location"/>
 
+    <button (click)="removeParty(party)" [routerLink]="['/']">Remove</button>
     <button type="submit">Save!</button>
-    <input type="button" [routerLink]="['/']">Cancel</button>
+    <input type="button" [routerLink]="['/']" value="cancel"></button>
 </form>
