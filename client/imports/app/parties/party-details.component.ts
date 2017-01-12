@@ -6,15 +6,17 @@ import template from "./party-details.component.html";
 
 import {Parties} from "../../../../both/collections/parties.collection";
 import {Party} from "../../../../both/models/party.model";
+import {MeteorObservable} from "meteor-rxjs";
 
 @Component({
    selector:'party-details',
    template
 })
-export class PartyDetailsComponent implements OnInit, CanActivate{
+export class PartyDetailsComponent implements OnInit, CanActivate, OnDestroy{
            partyId:string;
            paramsSub:Subscription;
            party:Party;
+           partySub:Subscription;
            
            constructor(private route:ActivatedRoute) {
                
@@ -29,27 +31,34 @@ export class PartyDetailsComponent implements OnInit, CanActivate{
                     }
                 })
 
-           }
+           };
 
         removeParty(party:Party):void{
         Parties.remove(party._id);
-        }
+        };
 
            canActivate(){
-
                const party = Parties.findOne(this.partyId)
                return (party && party.owner == Meteor.userId());
-           }
+           };
 
            ngOnInit(){
                this.paramsSub = this.route.params
                .map(params => params["partyId"])
                .subscribe(partyId => this.partyId = partyId)
 
-               this.party = Parties.findOne(this.partyId);
-           }
+               if(this.partySub){
+                   this.partySub.unsubscribe();
+               }
+            this.partySub = MeteorObservable.subscribe('party',this.partyId).subscribe(()=> {
+                this.party = Parties.findOne(this.partyId);
+            })
+               
+            }
+           
 
            ngOnDestroy(){
                this.paramsSub.unsubscribe();
+               this.partySub.unsubscribe();
            }
 }

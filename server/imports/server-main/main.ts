@@ -1,6 +1,7 @@
 import {DemoCollection} from "../../../both/collections/demo.collection";
 import {Demo} from "../../../both/models/demo.model";
 
+//import './imports/publications/parties'; 
 
 export class Main {
   start(): void {
