@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {routes,ROUTES_PROVIDERS} from "./app.route";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import {AccountsModule} from "angular2-meteor-accounts-ui";
+import {Ng2PaginationModule} from "ng2-pagination";
 
 
 
@@ -34,8 +35,8 @@ import {AccountsModule} from "angular2-meteor-accounts-ui";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes), 
-    AccountsModule
-   
+    AccountsModule,
+   Ng2PaginationModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]

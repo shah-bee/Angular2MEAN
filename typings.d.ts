@@ -4,6 +4,10 @@
 /// <reference types="@types/chai" />
 /// <reference types="@types/mocha" />
 
+declare var Fake: {
+  sentence(words: number): string;
+}
+
 declare module "*.html" {
   const template: string;
   export default template;
@@ -29,17 +33,27 @@ declare module "*.sass" {
   export default style;
 }
 
-declare module "meteor/hwillson:stub-collections" {
+declare module 'meteor/tmeasday:publish-counts' {
   import { Mongo } from "meteor/mongo";
-
-  interface IStubCollections {
-    stub(collection: Mongo.Collection);
-    restore();
+  interface CountsObject {
+    get(publicationName: string): string;
+    publish(context: any, publicationName: string, cursor: Mongo.Cursor, options: any): number;
   }
+  export const Counts: CountsObject;
+}
 
-  const StubCollections: IStubCollections;
+declare module "meteor/hwillson:stub-collections" {
 
-  export default StubCollections;
+
+}
+interface IStubCollections {
+  stub(collection: Mongo.Collection);
+  restore();
+}
+
+const StubCollections: IStubCollections;
+
+export default StubCollections;
 }
 
 declare module "chai-spies" {

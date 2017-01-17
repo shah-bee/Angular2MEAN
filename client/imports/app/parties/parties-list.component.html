@@ -1,15 +1,14 @@
 <ul>
   <li *ngFor="let party of parties | async">
-<a [routerLink]="['party',party._id]">{{party.name}}</a>
-
-<!--<p>{{party.description}}</p>
-<p>{{party.location}}</p>
-<button (click)="removeParty(party)" class="delete">X</button>-->
+    <a [routerLink]="['party',party._id]">{{party.name}}</a>
+    <!--<p>{{party.description}}</p>
+    <p>{{party.location}}</p>
+    <button (click)="removeParty(party)" class="delete">X</button>-->
   </li>
-
-<login-buttons></login-buttons>
-<a [routerLink]="">Main party link</a>
-<a [routerLink]="['party']">Add party</a>
-<input type="text" #searchtext placeholder="Search by Location"/>
-<button (click)="search(searchtext.value)">Search</button>
+  <login-buttons></login-buttons>
+  <a [routerLink]="">Main party link</a>
+  <a [routerLink]="['party']">Add party</a>
+  <input type="text" #searchtext placeholder="Search by Location" />
+  <button (click)="search(searchtext.value)">Search</button>
 </ul>
+<pagination-controls (pageChange)="onPageChanged($event)"></pagination-controls>
