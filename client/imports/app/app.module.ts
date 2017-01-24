@@ -10,6 +10,7 @@ import {routes,ROUTES_PROVIDERS} from "./app.route";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import {AccountsModule} from "angular2-meteor-accounts-ui";
 import {Ng2PaginationModule} from "ng2-pagination";
+import {DisplayNamePipe} from "./shared/display-name.pipe";
 
 
 
@@ -19,7 +20,8 @@ import {Ng2PaginationModule} from "ng2-pagination";
     AppComponent,
     PartiesComponent,
     PartyDetailsComponent,
-    PartiesListComponent
+    PartiesListComponent,
+    DisplayNamePipe,
   ],
   // Entry Components
   entryComponents: [

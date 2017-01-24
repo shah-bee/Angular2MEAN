@@ -5,5 +5,6 @@ export interface Party extends CollectionObject{
     description:string,
     location:string,
     owner?: string,
-    public:boolean
+    public:boolean;
+    invited?:string[];
 }

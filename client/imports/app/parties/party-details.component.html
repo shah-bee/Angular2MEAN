@@ -4,18 +4,26 @@
 <p>{{party.description}}</p>
 <p>{{party.location}}</p>
 </header>-->
-
+<p>Users to invite:</p>
+<table class="table container">
+  <tr *ngFor="let user of users | async">
+    <td>{{user | displayName }}</td>
+    <td><button class="col-sm-3 btn btn-success" (click)="invite(user)">Invite</button></td>
+</table>
 <form *ngIf="party" (submit)="saveParty()">
-    <label>Name:</label>
-    <input type="text" [(ngModel)] ="party.name" name="name"/>
-    
-    <label>Desscription:</label>
-    <input type="text" [(ngModel)] ="party.description" name="description"/>
-    
-    <label>Location:</label>
-    <input type="text" [(ngModel)] ="party.location" name="location"/>
-
-    <button (click)="removeParty(party)" [routerLink]="['/']">Remove</button>
-    <button type="submit">Save!</button>
-    <input type="button" [routerLink]="['/']" value="cancel"></button>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" class="form-control" [(ngModel)]="party.name" name="name" />
+  </div>
+  <div class="form-group">
+     <label for="description">Description:</label>
+    <input type="text" id="description" class="form-control" [(ngModel)]="party.description" name="description" />
+  </div>
+  <div class="form-group">
+    <label for="location">Location:</label>
+    <input type="text" class="form-control" id="location" [(ngModel)]="party.location" name="location" />
+  </div>
+  <button (click)="removeParty(party)" class="btn btn-danger" [routerLink]="['/']">Remove</button>
+  <button class="btn btn-success" type="submit">Save!</button>
+  <input type="button" class="btn btn-" [routerLink]="['/']" value="cancel"></button>
 </form>
